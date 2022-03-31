@@ -21,7 +21,14 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/homeAdmin', function () {
-    return view('homeAdmin');
+Route::get('noAccess', function () { 
+    return view('noAccess'); 
 });
+
+Route::get('homeAdmin', function () { 
+    return view('homeAdmin'); 
+})->middleware('checkRole:petugas');
+
+Route::get('homePatient', function () { 
+    return view('homePatient'); 
+})->middleware('checkRole:pasien');
