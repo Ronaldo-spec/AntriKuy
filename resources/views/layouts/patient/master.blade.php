@@ -1,57 +1,65 @@
 @extends('layouts.base')
 
 @section('body')
-<div class="container-fluid pt-4 px-4">
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
+<div id="site-content">
+			<div class="site-header">
+				<div class="container">
+					<a href="index.html" id="branding">
+						<img src="images/logo.png" alt="" class="logo">
+						<div class="logo-text">
+							<h1 class="site-title">RS Tadika Mesra</h1>
+							<small class="site-description">Tagline goes here</small>
+						</div>
+					</a> <!-- #branding -->
 
-    <!-- Content Start -->
-    
-        <!-- Navbar Start -->
-        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-            <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
-            </a>
-            
-            <div class="navbar-nav align-items-center ms-auto">
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <span class="d-none d-lg-inline-flex">User</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">Login</a>
-                        <a href="#" class="dropdown-item">Register</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <!-- Navbar End -->
+					<!-- Default snippet for navigation -->
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
+							<li class="menu-item"><a href="about.html">About</a></li>
+							<li class="menu-item"><a href="{{ url('../home') }}">Login</a></li>
+						</ul> <!-- .menu -->
+					</div> <!-- .main-navigation -->
 
-        @yield('content')
+					<div class="mobile-navigation"></div>
+				</div>
+			</div> <!-- .site-header -->
 
-        <!-- Footer Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="bg-light rounded-top p-4">
-                <div class="row">
-                    <div class="col-12 col-sm-6 text-center text-sm-start">
-                        &copy; <a href="#">Sistem Antrian Loket RS. Tadika Mesra</a>, All Right Reserved. 
-                    </div>
-                    <div class="col-12 col-sm-6 text-center text-sm-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                    </br>
-                    Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-    <!-- Content End -->
-</div>
+			@yield('content')
+
+			<footer class="site-footer">
+				<div class="container">
+					<div class="pull-left">
+
+						<address>
+							<strong>RS Tadika Mesra</strong>
+							<p> <img src="images/instagram.png" width="20" height="20">   @ps_tamesra</p>
+						</address>
+						
+
+						<a href="#" class="phone">+ 1 800 931 033</a>
+					</div> <!-- .pull-left -->
+					<div class="pull-right">
+
+						<div class="social-links">
+
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-google-plus"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-pinterest"></i></a>
+
+						</div>
+
+					</div> <!-- .pull-right -->
+
+					<div class="colophon">
+					<img src="images/facebook.png" width="20" height="20">
+						ps.tamesra
+					</div>
+
+				</div> <!-- .container -->
+			</footer> <!-- .site-footer -->
+		</div>
 @endsection
     
