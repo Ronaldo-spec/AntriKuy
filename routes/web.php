@@ -21,14 +21,14 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('noAccess', function () { 
-    return view('noAccess'); 
+Route::get('noAccess', function () {
+    return view('noAccess');
 });
 
-Route::get('homeAdmin', function () { 
-    return view('homeAdmin'); 
-})->middleware('checkRole:petugas');
+Route::get('/petugas', function () {
+    return view('petugas.index');
+})->middleware('checkRole:petugas')->name('petugas.index');
 
-Route::get('homePatient', function () { 
-    return view('homePatient'); 
-})->middleware('checkRole:pasien');
+Route::get('/pasien', function () {
+    return view('pasien.index');
+})->middleware('checkRole:pasien,petugas')->name('pasien.index');
