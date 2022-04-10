@@ -33,6 +33,9 @@
 					<li class="menu-item">
 						<a href="{{ route('login') }}">{{ __('Login') }}</a>
 					</li>
+					<li class="menu-item">
+						<a href="{{ route('register') }}">{{ __('register') }}</a>
+					</li>
 					@endif
 				</ul> <!-- .menu -->
 			</div> <!-- .main-navigation -->
