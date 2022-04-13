@@ -4,11 +4,11 @@
 <div id="site-content">
 	<div class="site-header">
 		<div class="container">
-			<a href="index.html" id="branding">
-				<img src="images/logo.png" alt="" class="logo">
+			<a href="{{ url('/') }}" id="branding">
+				<img src="images/logo.png"  class="logo">
 				<div class="logo-text">
-					<h1 class="site-title">RS Tadika Mesra</h1>
-					<small class="site-description">Tagline goes here</small>
+					<h1 class="site-title" >RS Tadika Mesra</h1>
+					<small class="site-description">Untuk Pelayanan yang Lebih Baik</small>
 				</div>
 			</a> <!-- #branding -->
 
@@ -16,7 +16,7 @@
 			<div class="main-navigation">
 				<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 				<ul class="menu">
-					<li class="menu-item current-menu-item"><a href="{{route('landing')}}">Home</a></li>
+					<li class="menu-item"><a href="{{route('landing')}}">Home</a></li>
 					<li class="menu-item"><a href="about.html">About</a></li>
 
 					@if(Auth::user())
