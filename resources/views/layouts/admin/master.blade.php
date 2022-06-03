@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{asset('img/favicon.ico')}}" rel=" icon">
+    <link href="{{asset('admin/img/favicon.ico')}}" rel=" icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-    <link href="{{asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('lib/admin/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('lib/admin/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('css/bootstrapp.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/admin/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('css/stylep.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/admin/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -41,7 +41,7 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="{{asset('images/user.jpg')}}" alt="" style=" width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="{{ asset('img/user.jpg')}}" alt="" style=" width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{route('petugas.index')}}" class="nav-item nav-link @yield('statussidepanel1')"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{route('admin.index')}}" class="nav-item nav-link @yield('statussidepanel1')"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{route('users.index')}}" class="nav-item nav-link @yield('statussidepanel2')"><i class="fa fa-user me-2"></i>Manage Users</a>
                     <a href="{{route('dokter.index')}}" class="nav-item nav-link @yield('statussidepanel3')"><i class="fa fa-user-doctor me-2"></i>Data Dokter</a>
                     <div class="nav-item dropdown">
@@ -83,7 +83,7 @@
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="{{asset('images/user.jpg')}}" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="{{ asset('img/user.jpg')}}" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">{{ Auth::user()->username }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
@@ -122,16 +122,16 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('lib/chart/chart.min.js')}}"></script>
-    <script src="{{asset('lib/easing/easing.min.js')}}"></script>
-    <script src="{{asset('lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('lib/tempusdominus/js/moment.min.js')}}"></script>
-    <script src="{{asset('lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
-    <script src="{{asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+    <script src="{{ asset('lib/admin/chart/chart.min.js')}}"></script>
+    <script src="{{ asset('lib/admin/easing/easing.min.js')}}"></script>
+    <script src="{{ asset('lib/admin/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{ asset('lib/admin/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('lib/admin/tempusdominus/js/moment.min.js')}}"></script>
+    <script src="{{ asset('lib/admin/tempusdominus/js/moment-timezone.min.js')}}"></script>
+    <script src="{{ asset('lib/admin/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{ asset('js/admin/main.js')}}"></script>
 </body>
 
 </html>

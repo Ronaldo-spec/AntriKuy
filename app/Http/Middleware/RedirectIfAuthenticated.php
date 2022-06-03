@@ -23,15 +23,15 @@ class RedirectIfAuthenticated
             $role = Auth::user()->role;
 
             switch ($role) {
-                case 'petugas':
-                    return redirect()->route('petugas.index');
+                case 'admin':
+                    return redirect()->route('admin.index');
                     break;
                 case 'pasien':
-                    return redirect()->route('landing');
+                    return redirect()->route('home');
                     break;
 
                 default:
-                    return redirect('/home');
+                    return redirect()->route('home');
                     break;
             }
         }

@@ -25,6 +25,6 @@ class CheckRole
             }
         }
         abort(403, 'Anda tidak memiliki hak mengakses laman tersebut!');
-        return redirect('pasien');
+        return redirect()->route('home');
     }
 }

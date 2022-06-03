@@ -15,22 +15,57 @@ use App\Http\Controllers\Petugas\DokterController;
 |
 */
 
-Route::get('/', function () {
-    return view('landing');
-})->name('landing');
-
 Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('landing');
+})->name('home');
+Route::get('/poli', function () {
+    return view('poli');
+})->name('poli');
+Route::get('/dokter', function () {
+    return view('dokter');
+})->name('dokter');
+Route::get('/ambil-nomor', function () {
+    return view('ambilantrian');
+})->name('ambilantrian');
+Route::get('/lihat-antrian', function () {
+    return view('lihatantrian');
+})->name('lihatantrian');
+Route::get('/cek-nomor-antrian', function () {
+    return view('cekantrian');
+})->name('cekantrian');
 
-Route::get('/petugas', function () {
-    return view('petugas.index');
-})->middleware('checkRole:petugas')->name('petugas.index');
+// Route::get('/reset', function () {
+//     return view('auth.password.reset');
+// })->name('resetpass');
+
+// Route::get('/admin-home', function () {
+//     return view('admin.index');
+// })->name('admin.index');
+// Route::get('/user-index', function () {
+//     return view('admin.users.index');
+// })->name('users.index');
+// Route::get('/dokter-index', function () {
+//     return view('admin.dokter.index');
+// })->name('dokter.index');
+
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', function () {
+    return view('admin.index');
+})->middleware('checkRole:admin')->name('admin.index');
+
+Route::get('/admin-home', function () {
+    return view('admin.index');
+})->middleware('checkRole:admin')->name('admin');
 
 Route::group([
-    'prefix' => 'petugas',
-    'middleware' => 'checkRole:petugas'
+    'prefix' => 'admin',
+    'middleware' => 'checkRole:admin'
 ], function () {
     Route::resource('users', UserController::class);
     Route::resource('dokter', DokterController::class);
@@ -47,6 +82,6 @@ Route::group([
 //     return view('petugas.users.edit');
 // })->middleware('checkRole:petugas')->name('user.edit');
 
-Route::get('/pasien', function () {
-    return view('pasien.index');
-})->middleware('checkRole:pasien,petugas')->name('pasien.index');
+// Route::get('/pasien', function () {
+//     return view('pasien.index');
+// })->middleware('checkRole:pasien,petugas')->name('pasien.index');

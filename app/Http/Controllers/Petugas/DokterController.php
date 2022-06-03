@@ -16,7 +16,7 @@ class DokterController extends Controller
     public function index()
     {
         $dokters = Dokter::get();
-        return view('petugas.dokter.index', compact('dokters'));
+        return view('admin.dokter.index', compact('dokters'));
     }
 
     /**
@@ -26,7 +26,7 @@ class DokterController extends Controller
      */
     public function create()
     {
-        return view('petugas.dokter.create');
+        return view('admin.dokter.create');
     }
 
     /**

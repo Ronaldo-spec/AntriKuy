@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -56,19 +57,19 @@ class LoginController extends Controller
             $role = Auth::user()->role;
             switch ($role) {
                 case 'petugas':
-                    return redirect()->route('petugas.index');
+                    return redirect()->route('admin.index');
                     break;
                 case 'pasien':
-                    return redirect()->route('landing');
+                    return redirect()->route('home');
                     break;
 
                 default:
-                    return '/home';
+                    return '/';
                     break;
             }
         } else {
-            return redirect()->route('login')
-                ->with('error', 'Email-Address And Password Are Wrong.');
+            Alert::error('Error', 'Alamat Email atau Password Anda Salah!!.');
+            return redirect()->route('login');
         }
     }
 }

@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::get();
-        return view('petugas.users.index', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('petugas.users.create');
+        return view('admin.users.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
-        return view('petugas.users.edit', compact('users'));
+        return view('admin.users.edit', compact('users'));
     }
 
     public function update(Request $request, $id)
