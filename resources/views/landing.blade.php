@@ -29,8 +29,8 @@
                 <img class="w-100" src="{{ asset('img/carousel-1.jpg') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Keep Your Teeth Healthy</h5>
-                        <h1 class="display-1 text-white mb-md-4 animated zoomIn">Take The Best Quality Dental Treatment</h1>
+                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Rumah Sakit San Andreas</h5>
+                        <h1 class="display-1 text-white mb-md-4 animated zoomIn">Melayani Sepenuh Hati, Melayani Dengan Cinta</h1>
                         @guest
                         <a href="{{route('login')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Buruan Daftar</a>
                         @endguest
@@ -44,8 +44,8 @@
                 <img class="w-100" src="{{ asset('img/carousel-2.jpg') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Keep Your Teeth Healthy</h5>
-                        <h1 class="display-1 text-white mb-md-4 animated zoomIn">Take The Best Quality Dental Treatment</h1>
+                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Rumah Sakit San Andreas</h5>
+                        <h1 class="display-1 text-white mb-md-4 animated zoomIn">Kami Perhatian, Kami Menyayangi</h1>
                         @guest
                         <a href="{{route('login')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Buruan Daftar</a>
                         @endguest
@@ -77,16 +77,20 @@
                 <div class="bg-primary d-flex flex-column p-5" style="height: 300px;">
                     <h3 class="text-white mb-3">Jam Buka</h3>
                     <div class="d-flex justify-content-between text-white mb-3">
-                        <h6 class="text-white mb-0">Mon - Fri</h6>
-                        <p class="mb-0"> 8:00am - 9:00pm</p>
+                        <h6 class="text-white mb-0">Senin - Kamis</h6>
+                        <p class="mb-0"> 07:30 - 12:00</p>
                     </div>
                     <div class="d-flex justify-content-between text-white mb-3">
-                        <h6 class="text-white mb-0">Saturday</h6>
-                        <p class="mb-0"> 8:00am - 7:00pm</p>
+                        <h6 class="text-white mb-0">Jumat</h6>
+                        <p class="mb-0"> 07:30 - 11:00</p>
                     </div>
                     <div class="d-flex justify-content-between text-white mb-3">
-                        <h6 class="text-white mb-0">Sunday</h6>
-                        <p class="mb-0"> 8:00am - 5:00pm</p>
+                        <h6 class="text-white mb-0">Sabtu</h6>
+                        <p class="mb-0"> 08:00 - 10:00</p>
+                    </div>
+                    <div class="d-flex justify-content-between text-white mb-3">
+                        <h6 class="text-white mb-0">Minggu & Tanggal Merah</h6>
+                        <p class="mb-0">LIBUR</p>
                     </div>
                 </div>
             </div>
@@ -101,9 +105,19 @@
             </div>
             <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
                 <div class="bg-secondary d-flex flex-column p-5" style="height: 300px;">
-                    <h3 class="text-white mb-3">Apanih</h3>
-                    <p class="text-white">Ipsum erat ipsum dolor clita rebum no rebum dolores labore, ipsum magna at eos et eos amet.</p>
-                    <h2 class="text-white mb-0">+012 345 6789</h2>
+                    <h3 class="text-white mb-3">VAKSIN</h3>
+                    <div class="d-flex justify-content-between text-white mb-3">
+                        <h6 class="text-white mb-0">Sinovac</h6>
+                        <p class="mb-0">RABU</p>
+                    </div>
+                    <div class="d-flex justify-content-between text-white mb-3">
+                        <h6 class="text-white mb-0">Pfizer</h6>
+                        <p class="mb-0">KAMIS</p>
+                    </div>
+                    <div class="d-flex justify-content-between text-white mb-3">
+                        <h6 class="text-white mb-0">AstraZanecca</h6>
+                        <p class="mb-0">JUMAT</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,19 +130,21 @@
         <div class="row g-5">
             <div class="col-lg-7">
                 <div class="section-title mb-4">
-                    <h5 class="position-relative d-inline-block text-primary text-uppercase">About Us</h5>
-                    <h1 class="display-5 mb-0">The World's Best Dental Clinic That You Can Trust</h1>
+                    <h5 class="position-relative d-inline-block text-primary text-uppercase">TENTANG KAMI</h5>
+                    <h1 class="display-5 mb-0">Rumah Sakit Terbaik & Ternyaman Yang Bisa Anda Rasakan</h1>
                 </div>
-                <h4 class="text-body fst-italic mb-4">Diam dolor diam ipsum sit. Clita erat ipsum et lorem stet no lorem sit clita duo justo magna dolore</h4>
-                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                <h4 class="text-body fst-italic mb-4">Rumah Sakit San Andreas</h4>
+                <p class="mb-4">Berawal dari keinginan untuk memberikan kesadaran akan pentingnya kebersihan dan kesehtan kepada masyarakat, dr. Carl Johnson membuka klinik kesehatan untuk warga sekitar. Klinik ini kemudian semakin berkembang hinggan menjadi Rumah Sakit San Andreas.</p>
                 <div class="row g-3">
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.3s">
-                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Award Winning</h5>
-                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Professional Staff</h5>
+                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Berprestasi</h5>
+                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Bersertifikat</h5>
+                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Dokter Ahli & Professional</h5>
                     </div>
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.6s">
-                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>24/7 Opened</h5>
-                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Fair Prices</h5>
+                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>24 Jam</h5>
+                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Umum & BPJS</h5>
+                        <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>UGD & IGD</h5>
                     </div>
                 </div>
             </div>

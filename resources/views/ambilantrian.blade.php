@@ -1,4 +1,4 @@
-@extends('layouts.master')
+    @extends('layouts.master')
 @section('pagestatus3', 'active')
 @section('content')
 <!-- Hero Start -->
@@ -16,8 +16,8 @@
         <div class="row gx-5">
             <div class="col-lg-6 py-5">
                 <div class="py-5">
-                    <h1 class="display-5 text-white mb-4">We Are A Certified and Award Winning Dental Clinic You Can Trust</h1>
-                    <p class="text-white mb-0">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
+                    <h1 class="display-5 text-white mb-4">ANTRIAN ONLINE</h1>
+                    <p class="text-white mb-0">Kami menyediakan sistem antrian secara online sehingga para pasien tidak perlu datang langsung ke tempat dan menunggu terlalu lama. Dengan adanya sistem antrian online ini kami harapkan para pasien nyaman dan puas terhadapat layanan kami.</p>
                 </div>
             </div>
             <div class="col-lg-6">
