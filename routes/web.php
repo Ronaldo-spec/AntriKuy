@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Petugas\UserController;
 use App\Http\Controllers\Petugas\DokterController;
+use App\Http\Controllers\PasienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,12 @@ Route::get('/lihat-antrian', function () {
 Route::get('/cek-nomor-antrian', function () {
     return view('cekantrian');
 })->name('cekantrian');
-
+Route::get('/edit-profil', function () {
+    return view('editprofil');
+})->name('editprofil');
+Route::get('/edit-data', function () {
+    return view('editdata');
+})->name('editdata');
 // Route::get('/reset', function () {
 //     return view('auth.password.reset');
 // })->name('resetpass');
@@ -71,6 +77,8 @@ Route::group([
     Route::resource('dokter', DokterController::class);
 });
 
+Route::resource('pasien', PasienController::class);
+Route::post('/pasien/profil/update', [PasienController::class, 'updateprofil'])->name('pasien.updateprofil');
 // Route::get('/petugas/user', function () {
 //     return view('petugas.users.index');
 // })->middleware('checkRole:petugas')->name('user.index');

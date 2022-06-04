@@ -31,6 +31,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/general/style.css') }}" rel="stylesheet">
+    @yield('styletambahan')
 </head>
 
 <body>
