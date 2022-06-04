@@ -37,12 +37,12 @@ Route::get('/lihat-antrian', function () {
 Route::get('/cek-nomor-antrian', function () {
     return view('cekantrian');
 })->name('cekantrian');
-Route::get('/edit-profil', function () {
-    return view('editprofil');
-})->name('editprofil');
-Route::get('/edit-data', function () {
-    return view('editdata');
-})->name('editdata');
+// Route::get('/edit-profil', function () {
+//     return view('editprofil');
+// })->name('editprofil');
+// Route::get('/edit-data', function () {
+//     return view('editdata');
+// })->name('editdata');
 // Route::get('/reset', function () {
 //     return view('auth.password.reset');
 // })->name('resetpass');
@@ -76,9 +76,14 @@ Route::group([
     Route::resource('users', UserController::class);
     Route::resource('dokter', DokterController::class);
 });
+// Route::get('/pasien/update/{id}', function () {
+//     return view('editdata');
+// })->name('pasien.editdata');
 
-Route::resource('pasien', PasienController::class);
+Route::get('/pasien/profil/edit', [PasienController::class, 'editprofil'])->name('pasien.editprofil');
 Route::post('/pasien/profil/update', [PasienController::class, 'updateprofil'])->name('pasien.updateprofil');
+Route::get('/pasien/data/edit', [PasienController::class, 'edit'])->name('pasien.editdata');
+Route::post('/pasien/data/update', [PasienController::class, 'update'])->name('pasien.updatedata');
 // Route::get('/petugas/user', function () {
 //     return view('petugas.users.index');
 // })->middleware('checkRole:petugas')->name('user.index');

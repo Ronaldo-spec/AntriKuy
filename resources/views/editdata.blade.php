@@ -76,59 +76,53 @@
     <div class="container">
         <div class="row g-5">
             <nav class="nav nav-borders">
-                <a class="nav-link" href="{{route('editprofil')}}">Profile</a>
-                <a class="nav-link active ms-0" href="{{route('editdata')}}">Data</a>
+                <a class="nav-link" href="{{route('pasien.editprofil')}}">Profile</a>
+                <a class="nav-link active ms-0" href="{{route('pasien.editdata')}}">Data</a>
             </nav>
             <hr class="mt-0 mb-4">
             <div class="row">
-                <div class="col-xl-4">
-                    <!-- Profile picture card-->
-                    <div class="card mb-4 mb-xl-0">
-                        <div class="card-header">Profile Picture</div>
-                        <div class="card-body text-center">
-                            <!-- Profile picture image-->
-                            <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                            <!-- Profile picture help block-->
-                            <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                            <!-- Profile picture upload button-->
-                            <button class="btn btn-primary" type="button">Upload new image</button>
-                        </div>
-                    </div>
+                <div class="col-md-2">
+
                 </div>
                 <div class="col-xl-8">
                     <!-- Account details card-->
                     <div class="card mb-4">
                         <div class="card-header">Data Diri Pasien</div>
                         <div class="card-body">
-                            <form>
+                            <form method="POST" action="{{ route('pasien.updatedata') }}" id="myForm" enctype="multipart/form-data">
+                                @csrf
                                 <!-- Form Group (username)-->
                                 <div class="mb-3">
-                                    <label class="small mb-1" for="inputUsername">Nomor Induk Kependudukan</label>
-                                    <input class="form-control" id="inputUsername" type="text" placeholder="NIK" value="username">
+                                    <label class="small mb-1" for="nik">Nomor Induk Kependudukan</label>
+                                    <input class="form-control" id="nik" name="nik" type="text" placeholder="NIK" value="{{ $users->nik }}">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="small mb-1" for="inputUsername">Nama lengkap</label>
-                                    <input class="form-control" id="inputUsername" type="text" placeholder="Nama" value="username">
+                                    <label class="small mb-1" for="nama_lengkap">Nama lengkap</label>
+                                    <input class="form-control" id="nama_lengkap" name="nama_lengkap" type="text" placeholder="Nama Lengkap" value="{{ $users->nama_lengkap }}">
                                 </div>
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (first name)-->
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="inputFirstName">Jenis Kelamin</label>
-                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie">
+                                        <label class="small mb-1" for="jenis_kelamin">Jenis Kelamin</label>
+                                        <select id="jenis_kelamin" name="jenis_kelamin" class="form-select" required>
+                                            <option value="Laki-Laki" @if($users->jenis_kelamin == 'Laki-Laki') selected @endif>Laki-Laki</option>
+                                            <option value="Perempuan" @if($users->jenis_kelamin == 'Perempuan') selected @endif>Perempuan</option>
+                                        </select>
+                                        <!-- <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie"> -->
                                     </div>
                                     <!-- Form Group (last name)-->
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName">Nomor HP</label>
-                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna">
+                                        <label class="small mb-1" for="no_hp">Nomor HP</label>
+                                        <input class="form-control" id="no_hp" name="no_hp" type="text" placeholder="Masukkan nomor HP" value="08xx">
                                     </div>
                                 </div>
                                 <!-- Form Row        -->
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="inputOrgName">Tempat Lahir</label>
-                                        <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="Start Bootstrap">
+                                        <label class="small mb-1" for="tempat_lahir">Tempat Lahir</label>
+                                        <input class="form-control" id="tempat_lahir" name="tempat_lahir" type="text" placeholder="Tempat Lahir" value="{{ $users->tempat_lahir }}">
                                     </div>
                                     <!-- Form Group (location)-->
                                     <div class="col-md-6">
@@ -141,8 +135,8 @@
                                 </div>
                                 <!-- Form Group (email address)-->
                                 <div class="mb-3">
-                                    <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
+                                    <label class="small mb-1" for="alamat">Alamat</label>
+                                    <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Masukkan Alamat Anda" value="{{ $users->alamat }}">
                                 </div>
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">

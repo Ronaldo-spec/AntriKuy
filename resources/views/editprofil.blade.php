@@ -76,8 +76,8 @@
     <div class="container">
         <div class="row g-5">
             <nav class="nav nav-borders">
-                <a class="nav-link active ms-0" href="{{route('editprofil')}}">Profile</a>
-                <a class="nav-link" href="{{route('editdata')}}">Data</a>
+                <a class="nav-link active ms-0" href="{{route('pasien.editprofil')}}">Profile</a>
+                <a class="nav-link" href="{{route('pasien.editdata')}}">Data</a>
             </nav>
             <hr class="mt-0 mb-4">
             <div class="row">
@@ -106,7 +106,7 @@
                                 <!-- Form Group (username)-->
                                 <div class="mb-3">
                                     <label class="small mb-1" for="username">Username</label>
-                                    <input class="form-control @error('username') is-invalid @enderror" id="username" name="username" type="text" placeholder="Masukkan username Anda" value="{{ Auth::user()->username }}">
+                                    <input class="form-control @error('username') is-invalid @enderror" id="username" name="username" type="text" placeholder="Masukkan username Anda" value="{{ $users->username }}">
                                     @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -116,7 +116,7 @@
                                 <!-- Form Group (email address)-->
                                 <div class="mb-3">
                                     <label class="small mb-1" for="email">Email address</label>
-                                    <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="Masukkan email Anda" value="{{Auth::user()->email}}">
+                                    <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="Masukkan email Anda" value="{{$users->email}}">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
