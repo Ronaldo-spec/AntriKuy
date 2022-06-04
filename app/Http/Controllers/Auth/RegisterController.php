@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Pasien;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -54,6 +55,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'id_pasien' => ['required', 'string', 'unique:users'],
         ]);
     }
 
@@ -65,10 +67,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Pasien::create([
+            'nik' => $data['id_pasien'],
+            'nama_lengkap' => $data['nama_lengkap'],
+            'alamat' => $data['alamat'],
+            'jenis_kelamin' => $data['jenis_kelamin'],
+            'no_hp' => $data['no_hp'],
+        ]);
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'id_pasien' => $data['id_pasien'],
         ]);
 
         toast('Berhasil membuat akun', 'success');

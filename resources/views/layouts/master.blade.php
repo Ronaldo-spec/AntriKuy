@@ -1,4 +1,3 @@
-@include('sweetalert::alert')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +35,7 @@
 
 <body>
     @include('layouts.components.navbar')
+    @include('sweetalert::alert')
     @yield('content')
 </body>
 
