@@ -66,7 +66,7 @@
                             <button class="btn btn-primary w-100 py-3" type="submit">Masuk</button>
                             @if (Route::has('password.request'))
                             <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
+                                {{ __('Lupa kata sandi?') }}
                             </a>
                             @endif
                         </div>

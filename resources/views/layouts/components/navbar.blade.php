@@ -28,6 +28,20 @@
                 @if (Auth::user()->role == 'admin')
                 <a href="{{route('admin')}}" class="nav-item nav-link @yield('pagestatus4')">Admin</a>
                 @endif
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Akun</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{{route('ambilantrian')}}" class="dropdown-item">Edit Profil</a>
+                        <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </div>
                 @endauth
             </div>
             @guest
@@ -38,20 +52,8 @@
             @if (Route::has('register'))
             <a href="{{route('register')}}" class="btn btn-secondary py-2 px-4 ms-3">Daftar</a>
             @endif
-            @else
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ Auth::user()->username }}</a>
-                <div class="dropdown-menu m-0">
-                    <a href="{{route('ambilantrian')}}" class="dropdown-item">Edit Profil</a>
-                    <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </div>
+
+
             @endguest
         </div>
     </nav>

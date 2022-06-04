@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+@include('sweetalert::alert')
 <!-- Hero Start -->
 <div class="container-fluid bg-primary py-5 hero-header mb-5">
     <div class="row py-3">
