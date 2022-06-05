@@ -58,5 +58,6 @@
 
 <!-- Template Javascript -->
 <script src="{{ asset('js/general/main.js') }}"></script>
+@yield('scripttambahan')
 
 </html>

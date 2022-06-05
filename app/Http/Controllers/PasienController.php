@@ -15,6 +15,13 @@ class PasienController extends Controller
     {
         $this->middleware(['auth', 'verified']);
     }
+    public function view()
+    {
+        $user = Auth::user()->with('pasien')->first();
+        $users = Auth::user();
+        return view('viewprofil', compact('users', 'user'));
+    }
+
     public function edit()
     {
         $nik = Auth::user()->id_pasien;

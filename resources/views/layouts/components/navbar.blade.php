@@ -26,7 +26,7 @@
                 </div>
                 @auth
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Akun</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{Auth::user()->username}}</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{route('pasien.editprofil')}}" class="dropdown-item">Edit Profil</a>
                         <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -42,20 +42,6 @@ Route::group(
 
 Route::group(
     [
-        'prefix' => 'admin',
-        'middleware' => 'checkRole:admin'
-    ],
-    function () {
-        Route::resource('users', UserController::class);
-        Route::resource('dokter', DokterController::class);
-        Route::get('/', function () {
-            return view('admin.index');
-        })->name('admin.index');
-    }
-);
-
-Route::group(
-    [
         'prefix' => '/',
         'middleware' => 'verified'
     ],
@@ -89,6 +75,7 @@ Route::group(
         'middleware' => 'verified'
     ],
     function () {
+        Route::get('/profil/view', [PasienController::class, 'view'])->name('pasien.viewprofil');
         Route::get('/profil/edit', [PasienController::class, 'editprofil'])->name('pasien.editprofil');
         Route::post('/profil/update', [PasienController::class, 'updateprofil'])->name('pasien.updateprofil');
         Route::get('/data/edit', [PasienController::class, 'edit'])->name('pasien.editdata');

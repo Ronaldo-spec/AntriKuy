@@ -72,26 +72,24 @@
     }
 </style>
 @section('content')
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+<div class="container-fluid py-5 wow fadeInUp mt-5" data-wow-delay="0.1s">
     <div class="container">
         <div class="row g-5">
-            <nav class="nav nav-borders">
-                <a class="nav-link active ms-0" href="{{route('pasien.editprofil')}}">Profile</a>
-                <a class="nav-link" href="{{route('pasien.editdata')}}">Data</a>
-            </nav>
-            <hr class="mt-0 mb-4">
             <div class="row">
                 <div class="col-xl-4">
                     <!-- Profile picture card-->
                     <div class="card mb-4 mb-xl-0">
-                        <div class="card-header">Profile Picture</div>
+                        <div class="card-header">Upload Foto Profil</div>
                         <div class="card-body text-center">
-                            <!-- Profile picture image-->
-                            <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                            <!-- Profile picture help block-->
-                            <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                            <!-- Profile picture upload button-->
-                            <button class="btn btn-primary" type="button">Upload new image</button>
+                            <div class="mb-3">
+                                <div class="image-area mt-4">
+                                    <img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="upload" class="btn btn-light m-0 rounded-pill px-4">Pilih gambar</label>
+                                <input name="gambar" id="upload" type="file" onchange="readURL(this);" style="display: none;" class="form-control border-0">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,7 +114,7 @@
                                 <!-- Form Group (email address)-->
                                 <div class="mb-3">
                                     <label class="small mb-1" for="email">Email address</label>
-                                    <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="Masukkan email Anda" value="{{$users->email}}">
+                                    <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="Masukkan email Anda" value="{{$users->email}}" autofocus>
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -125,7 +123,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1" for="password">Password</label>
-                                    <input class="form-control @error('password') is-invalid @enderror" id="password" name="password" type="password" placeholder="Masukkan password Anda untuk edit akun">
+                                    <input class="form-control @error('password') is-invalid @enderror" id="password" name="password" type="password" placeholder="Masukkan password Anda untuk edit akun" autocomplete="current-password">
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -134,7 +132,8 @@
                                 </div>
 
                                 <!-- Save changes button-->
-                                <button class="btn btn-primary" type="submit">Simpan Perubahan</button>
+                                <button class="btn btn-primary" type="submit">Simpan</button>
+                                <a class="btn btn-secondary" href="{{route('pasien.viewprofil')}}">Batal</a>
                             </form>
                         </div>
                     </div>
@@ -143,4 +142,35 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripttambahan')
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#imageResult')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(function() {
+        $('#upload').on('change', function() {
+            readURL(input);
+        });
+    });
+    /*  ==========================================
+        SHOW UPLOADED IMAGE NAME
+    * ========================================== */
+    var input = document.getElementById('upload');
+    var infoArea = document.getElementById('upload-label');
+    input.addEventListener('change', showFileName);
+
+    function showFileName(event) {
+        var input = event.srcElement;
+        var fileName = input.files[0].name;
+        infoArea.textContent = 'File name: ' + fileName;
+    }
+</script>
 @endsection
