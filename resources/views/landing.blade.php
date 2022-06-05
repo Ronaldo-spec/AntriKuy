@@ -78,10 +78,15 @@
             <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
                 <div class="bg-dark d-flex flex-column p-5" style="height: 300px;">
                     <h3 class="text-white mb-3">Cari Poli</h3>
-                    <div class="date mb-3" id="date" data-target-input="nearest">
-                        <input type="text" class="form-control bg-light border-0" placeholder="Masukkan nama poli" style="height: 40px;">
+                    <div class="date mb-3">
+                        <form action="{{ route('home.poli.search') }}" method="GET" role="search" id="searchForm">
+                            <div class="searchbar">
+                                <input type="text" class="search form-control bg-light border-0" name="search" placeholder="Cari Poli..." id="search" style="height: 40px;">
+                                <!-- <a href="" onclick="document.getElementById('searchForm').submit()" class="search_icon"><i class="fas fa-search"></i></a> -->
+                            </div>
+                        </form>
                     </div>
-                    <a class="btn btn-light" href="">Cari Poli</a>
+                    <a class="btn btn-light" href="" onclick="document.getElementById('searchForm').submit()">Cari Poli</a>
                 </div>
             </div>
             <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">

@@ -17,15 +17,24 @@ use App\Http\Controllers\PasienController;
 |
 */
 
-Route::get('/', function () {
-    return view('landing');
-})->name('landing');
-
 Auth::routes();
 Auth::routes(['verify' => true]);
 
 Route::get('/beranda', [HomeController::class, 'index'])->name('home');
 
+Route::group(
+    [
+        'prefix' => '/'
+    ],
+    function () {
+        Route::get('/', function () {
+            return view('landing');
+        })->name('landing');
+        Route::get('/poli/search', function () {
+            return view('poliresult');
+        })->name('home.poli.search');
+    }
+);
 Route::group(
     [
         'prefix' => 'poli'
