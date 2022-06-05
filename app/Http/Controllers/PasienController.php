@@ -10,6 +10,10 @@ use Hash;
 
 class PasienController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
     public function edit()
     {
         $nik = Auth::user()->id_pasien;
