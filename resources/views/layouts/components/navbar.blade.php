@@ -25,16 +25,11 @@
                     </div>
                 </div>
                 @auth
-                @if (Auth::user()->role == 'admin')
-                <a href="{{route('admin')}}" class="nav-item nav-link @yield('pagestatus4')">Admin</a>
-                @endif
-
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Akun</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{route('pasien.editprofil')}}" class="dropdown-item">Edit Profil</a>
-                        <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                        <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -44,6 +39,11 @@
                 </div>
                 @endauth
             </div>
+            @auth
+            @if (Auth::user()->role == 'admin')
+            <a href="{{route('admin.index')}}" class="btn btn-dark py-2 px-4 ms-3">Admin</a>
+            @endif
+            @endauth
             @guest
             @if (Route::has('login'))
             <a href="{{route('login')}}" class="btn btn-primary py-2 px-4 ms-3">Masuk</a>
