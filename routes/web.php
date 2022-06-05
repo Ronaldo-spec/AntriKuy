@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Petugas\UserController;
 use App\Http\Controllers\Petugas\DokterController;
@@ -16,24 +17,28 @@ use App\Http\Controllers\PasienController;
 |
 */
 
+Route::get('/', function () {
+    return view('landing');
+})->name('landing');
+
 Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::get('/', function () {
-    return view('landing');
-})->name('home');
+Route::get('/beranda', [HomeController::class, 'index'])->name('home');
+
 Route::get('/poli', function () {
     return view('poli');
 })->name('poli');
 Route::get('/dokter', function () {
     return view('dokter');
 })->name('dokter');
+
 Route::get('/ambil-nomor', function () {
     return view('ambilantrian');
-})->name('ambilantrian');
+})->middleware('verified')->name('ambilantrian');
 Route::get('/lihat-antrian', function () {
     return view('lihatantrian');
-})->name('lihatantrian');
+})->middleware('verified')->name('lihatantrian');
 Route::get('/cek-nomor-antrian', function () {
     return view('cekantrian');
 })->name('cekantrian');
@@ -76,14 +81,31 @@ Route::group([
     Route::resource('users', UserController::class);
     Route::resource('dokter', DokterController::class);
 });
+
+Route::group(
+    [
+        'prefix' => 'pasien',
+        'middleware' => 'checkRole:admin',
+        'middleware' => 'checkRole:pasien'
+    ],
+    function () {
+        Route::get('/profil/edit', [PasienController::class, 'editprofil'])->name('pasien.editprofil');
+        Route::post('/profil/update', [PasienController::class, 'updateprofil'])->name('pasien.updateprofil');
+        Route::get('/data/edit', [PasienController::class, 'edit'])->name('pasien.editdata');
+        Route::post('/data/update', [PasienController::class, 'update'])->name('pasien.updatedata');
+    }
+);
+
+
 // Route::get('/pasien/update/{id}', function () {
 //     return view('editdata');
 // })->name('pasien.editdata');
 
-Route::get('/pasien/profil/edit', [PasienController::class, 'editprofil'])->name('pasien.editprofil');
-Route::post('/pasien/profil/update', [PasienController::class, 'updateprofil'])->name('pasien.updateprofil');
-Route::get('/pasien/data/edit', [PasienController::class, 'edit'])->name('pasien.editdata');
-Route::post('/pasien/data/update', [PasienController::class, 'update'])->name('pasien.updatedata');
+// Route::get('/pasien/profil/edit', [PasienController::class, 'editprofil'])->name('pasien.editprofil');
+// Route::post('/pasien/profil/update', [PasienController::class, 'updateprofil'])->name('pasien.updateprofil');
+// Route::get('/pasien/data/edit', [PasienController::class, 'edit'])->name('pasien.editdata');
+// Route::post('/pasien/data/update', [PasienController::class, 'update'])->name('pasien.updatedata');
+
 // Route::get('/petugas/user', function () {
 //     return view('petugas.users.index');
 // })->middleware('checkRole:petugas')->name('user.index');

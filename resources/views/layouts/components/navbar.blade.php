@@ -1,6 +1,6 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand p-0">
+        <a href="{{route('landing')}}" class="navbar-brand p-0">
             <h1 class="m-0 text-primary"><i class="fa fa-stethoscope me-2"></i>AntriKuy</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -8,7 +8,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="{{route('home')}}" class="nav-item nav-link @yield('pagestatus1')">Home</a>
+                <a href="{{route('landing')}}" class="nav-item nav-link @yield('pagestatus1')">Home</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle @yield('pagestatus2')" data-bs-toggle="dropdown">Poli</a>
                     <div class="dropdown-menu m-0">
