@@ -25,7 +25,7 @@
             <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
                 <div class="team-item">
                     <div class="position-relative rounded-top" style="z-index: 1;">
-                        <img class="img-fluid rounded-top w-100" src="img/harold.jpg" alt="">
+                        <img class="img-fluid rounded-top w-100" src="{{ asset('img/harold.jpg') }}" ) alt="">
                         <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex">
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
@@ -42,7 +42,7 @@
             <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                 <div class="team-item">
                     <div class="position-relative rounded-top" style="z-index: 1;">
-                        <img class="img-fluid rounded-top w-100" src="img/strange.jpg" alt="">
+                        <img class="img-fluid rounded-top w-100" src="{{ asset('img/strange.jpg') }}" ) alt="">
                         <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex">
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
@@ -59,7 +59,7 @@
             <div class="col-lg-4 wow slideInUp" data-wow-delay="0.1s">
                 <div class="team-item">
                     <div class="position-relative rounded-top" style="z-index: 1;">
-                        <img class="img-fluid rounded-top w-100" src="img/boyke.jpg" alt="">
+                        <img class="img-fluid rounded-top w-100" src="{{ asset('img/boyke.jpg') }}" ) alt="">
                         <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex">
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
@@ -76,7 +76,7 @@
             <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
                 <div class="team-item">
                     <div class="position-relative rounded-top" style="z-index: 1;">
-                        <img class="img-fluid rounded-top w-100" src="img/mike.jpg" alt="">
+                        <img class="img-fluid rounded-top w-100" src="{{ asset('img/mike.jpg') }}" ) alt="">
                         <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex">
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
@@ -93,7 +93,7 @@
             <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                 <div class="team-item">
                     <div class="position-relative rounded-top" style="z-index: 1;">
-                        <img class="img-fluid rounded-top w-100" src="img/johny.jpg" alt="">
+                        <img class="img-fluid rounded-top w-100" src="{{ asset('img/johny.jpg') }}" ) alt="">
                         <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex">
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
                             <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>

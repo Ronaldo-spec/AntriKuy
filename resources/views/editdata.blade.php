@@ -72,105 +72,160 @@
     }
 </style>
 @section('content')
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+<div class="container-fluid py-5 wow fadeInUp mt-5" data-wow-delay="0.1s">
     <div class="container">
         <div class="row g-5">
-            <nav class="nav nav-borders">
-                <a class="nav-link" href="{{route('pasien.editprofil')}}">Profile</a>
-                <a class="nav-link active ms-0" href="{{route('pasien.editdata')}}">Data</a>
-            </nav>
             <hr class="mt-0 mb-4">
-            <div class="row">
-                <div class="col-md-2">
+            <form method="POST" action="{{ route('pasien.updatedata') }}" id="myForm" enctype="multipart/form-data">
+                @csrf
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Account details card-->
+                        <div class="card mb-4">
+                            <div class="card-header">Update Data Diri Pasien</div>
+                            <div class="card-body">
 
-                </div>
-                <div class="col-xl-8">
-                    <!-- Account details card-->
-                    <div class="card mb-4">
-                        <div class="card-header">Data Diri Pasien</div>
-                        <div class="card-body">
-                            <form method="POST" action="{{ route('pasien.updatedata') }}" id="myForm" enctype="multipart/form-data">
-                                @csrf
-                                <!-- Form Group (username)-->
-                                <div class="mb-3">
-                                    <label class="small mb-1" for="nik">Nomor Induk Kependudukan</label>
-                                    <input class="form-control" id="nik" name="nik" type="text" placeholder="NIK" value="{{ $users->nik }}">
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="small mb-1" for="nik">Nomor Induk Kependudukan</label>
+                                            <input class="form-control" id="nik" name="nik" type="text" placeholder="NIK" value="{{ $users->nik }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="small mb-1" for="kelas">Kelas</label>
+                                            <select id="kelas" name="kelas" class="form-select" required>
+                                                <option value="Regular" @if($users->kelas == 'Regular') selected @endif>Regular</option>
+                                                <option value="BPJS" @if($users->kelas == 'BPJS') selected @endif>BPJS</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div class="mb-3">
                                     <label class="small mb-1" for="nama_lengkap">Nama lengkap</label>
                                     <input class="form-control" id="nama_lengkap" name="nama_lengkap" type="text" placeholder="Nama Lengkap" value="{{ $users->nama_lengkap }}">
                                 </div>
-                                <!-- Form Row-->
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="alamat">Alamat</label>
+                                    <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Masukkan Alamat Anda" value="{{ $users->alamat }}">
+                                </div>
                                 <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="jenis_kelamin">Jenis Kelamin</label>
                                         <select id="jenis_kelamin" name="jenis_kelamin" class="form-select" required>
                                             <option value="Laki-Laki" @if($users->jenis_kelamin == 'Laki-Laki') selected @endif>Laki-Laki</option>
                                             <option value="Perempuan" @if($users->jenis_kelamin == 'Perempuan') selected @endif>Perempuan</option>
                                         </select>
-                                        <!-- <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie"> -->
                                     </div>
-                                    <!-- Form Group (last name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="no_hp">Nomor HP</label>
                                         <input class="form-control" id="no_hp" name="no_hp" type="text" placeholder="Masukkan nomor HP" value="08xx">
                                     </div>
                                 </div>
-                                <!-- Form Row        -->
                                 <div class="row gx-3 mb-3">
-                                    <!-- Form Group (organization name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="tempat_lahir">Tempat Lahir</label>
                                         <input class="form-control" id="tempat_lahir" name="tempat_lahir" type="text" placeholder="Tempat Lahir" value="{{ $users->tempat_lahir }}">
                                     </div>
-                                    <!-- Form Group (location)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLocation">Tanggal Lahir</label>
                                         <div class="date" id="date1" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input" placeholder="Tanggal Lahir" data-target="#date1" data-toggle="datetimepicker">
                                         </div>
-                                        <!-- <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="San Francisco, CA"> -->
                                     </div>
                                 </div>
-                                <!-- Form Group (email address)-->
-                                <div class="mb-3">
-                                    <label class="small mb-1" for="alamat">Alamat</label>
-                                    <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Masukkan Alamat Anda" value="{{ $users->alamat }}">
+                                <button class="btn btn-primary" type="submit">Simpan</button>
+                                <a class="btn btn-secondary" href="{{route('pasien.viewprofil')}}">Batal</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="row mb-5 Regular" id="BPJS" style="display: none;">
+                            <div>
+                                <div class="card mb-3">
+                                    <div class="card-header">Data BPJS Kesehatan</div>
+                                    <div class="card-body text-center">
+                                        <div class="mb-3">
+                                            <label class="small mb-1" for="nomor_kartu_bpjs">Nomor Kartu BPJS</label>
+                                            <input class="form-control" id="nomor_kartu_bpjs" name="nomor_kartu_bpjs" type="text">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="small mb-1" for="tingkat_faskes">Tingkat Faskes</label>
+                                            <select id="tingkat_faskes" name="tingkat_faskes" class="form-select" required>
+                                                <option value="null">Pilih Tingkat Faskes</option>
+                                                <option value="I" @if($users->tingkat_faskes == 'I') selected @endif>I</option>
+                                                <option value="II" @if($users->tingkat_faskes == 'II') selected @endif>II</option>
+                                                <option value="III" @if($users->tingkat_faskes == 'III') selected @endif>III</option>
+                                                <option value="IV" @if($users->tingkat_faskes == 'IV') selected @endif>IV</option>
+                                                <option value="V" @if($users->tingkat_faskes == 'V') selected @endif>V</option>
+                                                <option value="VI" @if($users->tingkat_faskes == 'VI') selected @endif>VI</option>
+                                                <option value="VII" @if($users->tingkat_faskes == 'VII') selected @endif>VII</option>
+                                                <option value="VIP" @if($users->tingkat_faskes == 'VIP') selected @endif>VIP</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (phone number)-->
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputPhone">Phone number</label>
-                                        <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
-                                    </div>
-                                    <!-- Form Group (birthday)-->
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                        <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988">
-                                    </div>
-                                </div>
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (phone number)-->
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputPhone">Password</label>
-                                        <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
-                                    </div>
-                                    <!-- Form Group (birthday)-->
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                        <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988">
+                                <div class="card mb-4 mb-xl-0">
+                                    <div class="card-header">Upload Scan Kartu BPJS</div>
+                                    <div class="card-body text-center">
+                                        <div class="mb-3">
+                                            <div class="image-area mt-4">
+                                                <img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4">Pilih gambar</label>
+                                            <input name="gambar" id="upload" type="file" onchange="readURL(this);" style="display: none;" class="form-control border-0">
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- Save changes button-->
-                                <button class="btn btn-primary" type="button">Save changes</button>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
+@endsection
+@section('scripttambahan')
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#imageResult')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(function() {
+        $('#upload').on('change', function() {
+            readURL(input);
+        });
+    });
+    /*  ==========================================
+        SHOW UPLOADED IMAGE NAME
+    * ========================================== */
+    var input = document.getElementById('upload');
+    var infoArea = document.getElementById('upload-label');
+    input.addEventListener('change', showFileName);
+
+    function showFileName(event) {
+        var input = event.srcElement;
+        var fileName = input.files[0].name;
+        infoArea.textContent = 'File name: ' + fileName;
+    }
+    $(document).ready(function() {
+        $('#kelas').on('change', function() {
+            var value = $(this).val();
+            $(".Regular").hide();
+            $("#" + value).show();
+        });
+    });
+</script>
 @endsection

@@ -1,6 +1,6 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand p-0">
+        <a href="{{route('landing')}}" class="navbar-brand p-0">
             <h1 class="m-0 text-primary"><i class="fa fa-stethoscope me-2"></i>AntriKuy</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -8,7 +8,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="{{route('home')}}" class="nav-item nav-link @yield('pagestatus1')">Home</a>
+                <a href="{{route('landing')}}" class="nav-item nav-link @yield('pagestatus1')">Home</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle @yield('pagestatus2')" data-bs-toggle="dropdown">Poli</a>
                     <div class="dropdown-menu m-0">
@@ -25,16 +25,11 @@
                     </div>
                 </div>
                 @auth
-                @if (Auth::user()->role == 'admin')
-                <a href="{{route('admin')}}" class="nav-item nav-link @yield('pagestatus4')">Admin</a>
-                @endif
-
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Akun</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{Auth::user()->username}}</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{route('pasien.editprofil')}}" class="dropdown-item">Edit Profil</a>
-                        <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                        <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -44,6 +39,11 @@
                 </div>
                 @endauth
             </div>
+            @auth
+            @if (Auth::user()->role == 'admin')
+            <a href="{{route('admin.index')}}" class="btn btn-dark py-2 px-4 ms-3">Admin</a>
+            @endif
+            @endauth
             @guest
             @if (Route::has('login'))
             <a href="{{route('login')}}" class="btn btn-primary py-2 px-4 ms-3">Masuk</a>

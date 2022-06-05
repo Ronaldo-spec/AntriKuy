@@ -6,10 +6,22 @@ use Illuminate\Http\Request;
 use App\Models\Pasien;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-use Hash;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
 
 class PasienController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+    public function view()
+    {
+        $user = Auth::user()->with('pasien')->first();
+        $users = Auth::user();
+        return view('viewprofil', compact('users', 'user'));
+    }
+
     public function edit()
     {
         $nik = Auth::user()->id_pasien;

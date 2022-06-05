@@ -64,6 +64,11 @@
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Masuk</button>
+                            @if (Route::has('register'))
+                            <a class="btn btn-link" href="{{ route('register') }}">
+                                {{ __('Buat akun') }}
+                            </a>
+                            @endif
                             @if (Route::has('password.request'))
                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                 {{ __('Lupa kata sandi?') }}

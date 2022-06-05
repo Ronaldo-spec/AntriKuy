@@ -56,7 +56,7 @@ class LoginController extends Controller
             // return redirect()->route('home');
             $role = Auth::user()->role;
             switch ($role) {
-                case 'petugas':
+                case 'admin':
                     return redirect()->route('admin.index');
                     break;
                 case 'pasien':
@@ -64,7 +64,7 @@ class LoginController extends Controller
                     break;
 
                 default:
-                    return '/';
+                    return redirect()->route('home');
                     break;
             }
         } else {
