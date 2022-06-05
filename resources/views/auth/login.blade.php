@@ -17,13 +17,13 @@
                 <div class="bg-light rounded h-100 p-5">
                     <div class="section-title">
                         <h5 class="position-relative d-inline-block text-primary text-uppercase">Masuk</h5>
-                        <h1 class="display-6 mb-4">Semangatin ges!</h1>
+                        <h1 class="display-6 mb-4">AKUN</h1>
                     </div>
                     <div class="d-flex align-items-center mb-2">
                         <!-- <i class="bi bi-geo-alt fs-1 text-primary me-3"></i> -->
                         <div class="text-start">
                             <!-- <h5 class="mb-0">Our Office</h5> -->
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dignissim varius libero, at ornare justo sodales non. </span>
+                            <span>Silahkan masuk dengan akun yang anda yang telah dibuat.</span>
                         </div>
                     </div>
                     <!-- <div class="d-flex align-items-center mb-2">
