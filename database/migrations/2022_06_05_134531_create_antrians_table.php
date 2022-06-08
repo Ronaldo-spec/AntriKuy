@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateAntriansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,10 +18,12 @@ return new class extends Migration
             $table->string('nomor_antrian');
             $table->date('tanggal');
             $table->string('status');
-            $table->unsignedBigInteger('id_petugas')->nullable();
+            $table->unsignedBigInteger('id_pasien')->nullable();
             $table->unsignedBigInteger('id_poli')->nullable();
+            $table->unsignedBigInteger('id_petugas')->nullable();
             $table->foreign('id_petugas')->references('id')->on('petugas');
             $table->foreign('id_poli')->references('id')->on('poli');
+            $table->foreign('id_pasien')->references('id')->on('pasien');
             $table->timestamps();
         });
     }
@@ -35,4 +37,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('antrian');
     }
-};
+}

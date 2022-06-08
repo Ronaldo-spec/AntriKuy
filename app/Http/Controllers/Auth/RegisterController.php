@@ -74,11 +74,13 @@ class RegisterController extends Controller
             'jenis_kelamin' => $data['jenis_kelamin'],
             'no_hp' => $data['no_hp'],
         ]);
+        $id_pasien = Pasien::where('nik', '=', $data['id_pasien'])->first();
+        $id_pasien = $id_pasien->id;
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'id_pasien' => $data['id_pasien'],
+            'id_pasien' => $id_pasien,
         ]);
 
         toast('Berhasil membuat akun', 'success');

@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AntrianController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Petugas\UserController;
 use App\Http\Controllers\Petugas\DokterController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\Petugas\HomeAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,13 +53,11 @@ Route::group(
 
 Route::group(
     [
-        'prefix' => '/',
+        'prefix' => '/antrian',
         'middleware' => 'verified'
     ],
     function () {
-        Route::get('/ambil-nomor', function () {
-            return view('ambilantrian');
-        })->name('ambilantrian');
+        Route::get('/ambil-nomor', [AntrianController::class, 'index'])->name('ambilantrian');
         Route::get('/lihat-antrian', function () {
             return view('lihatantrian');
         })->name('lihatantrian');
@@ -73,9 +73,7 @@ Route::group([
 ], function () {
     Route::resource('users', UserController::class);
     Route::resource('dokter', DokterController::class);
-    Route::get('/', function () {
-        return view('admin.index');
-    })->name('admin.index');
+    Route::get('/', [HomeAdminController::class, 'index'])->name('admin.index');
 });
 
 Route::group(
@@ -89,5 +87,6 @@ Route::group(
         Route::post('/profil/update', [PasienController::class, 'updateprofil'])->name('pasien.updateprofil');
         Route::get('/data/edit', [PasienController::class, 'edit'])->name('pasien.editdata');
         Route::post('/data/update', [PasienController::class, 'update'])->name('pasien.updatedata');
+        Route::post('/data/bpjs', [PasienController::class, 'addbpjs'])->name('pasien.addbpjs');
     }
 );

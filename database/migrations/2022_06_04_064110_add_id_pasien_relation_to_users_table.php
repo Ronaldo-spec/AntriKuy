@@ -14,7 +14,7 @@ class AddIdPasienRelationToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('id_pasien')->references('nik')->on('pasien');
+            $table->foreign('id_pasien')->references('id')->on('pasien');
         });
     }
 

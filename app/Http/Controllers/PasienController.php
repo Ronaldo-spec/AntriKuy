@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bpjs;
 use Illuminate\Http\Request;
 use App\Models\Pasien;
 use Illuminate\Support\Facades\Auth;
@@ -17,21 +18,93 @@ class PasienController extends Controller
     }
     public function view()
     {
-        $user = Auth::user()->with('pasien')->first();
         $users = Auth::user();
+        $user = $users->with('pasien')->first();
         return view('viewprofil', compact('users', 'user'));
     }
 
     public function edit()
     {
-        $nik = Auth::user()->id_pasien;
-        $users = Pasien::where('nik', '=', $nik)->first();
+        $user = Auth::user();
+        $users = $user->with('pasien')->first();
         return view('editdata', compact('users'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        if ($request->input('kelas') == 'regular') {
+            $request->validate([
+                'nik' => 'required',
+                'kelas' => 'required',
+                'nama_lengkap' => 'required',
+                'alamat' => 'required',
+                'jenis_kelamin' => 'required',
+                'no_hp' => 'required',
+                'tempat_lahir' => 'required',
+                'tgl_lahir' => 'required',
+            ]);
+            $id = Auth::user()->id_pasien;
+            $inputpasien = Pasien::find($id)->update([
+                'nik' => $request->nik,
+                'kelas' => $request->kelas,
+                'nama_lengkap' => $request->nama_lengkap,
+                'alamat' => $request->alamat,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'no_hp' => $request->no_hp,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tgl_lahir' => $request->tgl_lahir,
+                'nomor_bpjs' => '',
+                'tingkat_faskes' => ''
+            ]);
+
+            if ($inputpasien) {
+                Alert::success('Success', 'Update Data Berhasil!!!');
+            } else {
+                Alert::error('Error', 'Gagal Update Data!!!');
+            }
+        } else if ($request->input('kelas') == 'bpjs') {
+            $request->validate([
+                'nik' => 'required',
+                'kelas' => 'required',
+                'nama_lengkap' => 'required',
+                'alamat' => 'required',
+                'jenis_kelamin' => 'required',
+                'no_hp' => 'required',
+                'tempat_lahir' => 'required',
+                'tgl_lahir' => 'required',
+                'nomor_bpjs' => 'required',
+                'tingkat_faskes' => 'required'
+            ]);
+
+            $id = Auth::user()->id_pasien;
+            $pasien = Pasien::where('id', $id)->first();
+            $pasien->nik = $request->nik;
+            $pasien->kelas = $request->kelas;
+            $pasien->nama_lengkap = $request->nama_lengkap;
+            $pasien->alamat = $request->alamat;
+            $pasien->jenis_kelamin = $request->jenis_kelamin;
+            $pasien->no_hp = $request->no_hp;
+            $pasien->tempat_lahir = $request->tempat_lahir;
+            $pasien->tgl_lahir = $request->tgl_lahir;
+            $pasien->nomor_bpjs = $request->nomor_bpjs;
+            $pasien->tingkat_faskes = $request->tingkat_faskes;
+            $pasien->save();
+
+
+            if ($pasien) {
+                Alert::success('Success', 'Update Data Berhasil!');
+            } else {
+                Alert::error('Error', 'Gagal Update Data!');
+            }
+        };
+
+        return redirect()->route('pasien.viewprofil');
+    }
+    public function addbpjs(Request $request)
+    {
+        # code...
+        return redirect()->route('pasien.viewprofil');
     }
 
     public function editprofil()

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->enum('role', ['admin', 'pasien'])->default('pasien');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('id_pasien')->nullable();
+            $table->unsignedBigInteger('id_pasien')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateStatusAntriansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('status_antrian', function (Blueprint $table) {
+        Schema::create('status_antrians', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_antrian_sekarang');
             $table->string('jumlah_antrian');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_antrian');
+        Schema::dropIfExists('status_antrians');
     }
-};
+}

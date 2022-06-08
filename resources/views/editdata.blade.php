@@ -78,6 +78,7 @@
             <hr class="mt-0 mb-4">
             <form method="POST" action="{{ route('pasien.updatedata') }}" id="myForm" enctype="multipart/form-data">
                 @csrf
+                @include('sweetalert::alert')
                 <div class="row">
                     <div class="col-xl-8">
                         <!-- Account details card-->
@@ -89,82 +90,129 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="small mb-1" for="nik">Nomor Induk Kependudukan</label>
-                                            <input class="form-control" id="nik" name="nik" type="text" placeholder="NIK" value="{{ $users->nik }}">
+                                            <input class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik" type="text" placeholder="NIK" value="{{ $users->pasien->nik }}">
+                                            @error('nik')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="small mb-1" for="kelas">Kelas</label>
-                                            <select id="kelas" name="kelas" class="form-select" required>
-                                                <option value="Regular" @if($users->kelas == 'Regular') selected @endif>Regular</option>
-                                                <option value="BPJS" @if($users->kelas == 'BPJS') selected @endif>BPJS</option>
+                                            <select id="kelas" name="kelas" class="form-select @error('kelas') is-invalid @enderror" required>
+                                                <option value="regular" @if($users->pasien->kelas == 'regular') selected @endif>Regular</option>
+                                                <option value="bpjs" @if($users->pasien->kelas == 'bpjs') selected @endif>BPJS</option>
                                             </select>
+                                            @error('kelas')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="small mb-1" for="nama_lengkap">Nama lengkap</label>
-                                    <input class="form-control" id="nama_lengkap" name="nama_lengkap" type="text" placeholder="Nama Lengkap" value="{{ $users->nama_lengkap }}">
+                                    <input class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" name="nama_lengkap" type="text" placeholder="Nama Lengkap" value="{{ $users->pasien->nama_lengkap }}">
+                                    @error('nama_lengkap')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1" for="alamat">Alamat</label>
-                                    <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Masukkan Alamat Anda" value="{{ $users->alamat }}">
+                                    <input class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" type="text" placeholder="Masukkan Alamat Anda" value="{{ $users->pasien->alamat }}">
+                                    @error('alamat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="jenis_kelamin">Jenis Kelamin</label>
-                                        <select id="jenis_kelamin" name="jenis_kelamin" class="form-select" required>
-                                            <option value="Laki-Laki" @if($users->jenis_kelamin == 'Laki-Laki') selected @endif>Laki-Laki</option>
-                                            <option value="Perempuan" @if($users->jenis_kelamin == 'Perempuan') selected @endif>Perempuan</option>
+                                        <select id="jenis_kelamin" name="jenis_kelamin" class="form-select @error('jenis_kelamin') is-invalid @enderror" required>
+                                            <option value="Laki-Laki" @if($users->pasien->jenis_kelamin == 'Laki-Laki') selected @endif>Laki-Laki</option>
+                                            <option value="Perempuan" @if($users->pasien->jenis_kelamin == 'Perempuan') selected @endif>Perempuan</option>
                                         </select>
+                                        @error('jenis_kelamin')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="no_hp">Nomor HP</label>
-                                        <input class="form-control" id="no_hp" name="no_hp" type="text" placeholder="Masukkan nomor HP" value="08xx">
+                                        <input class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" name="no_hp" type="text" placeholder="Masukkan nomor HP" @if($users->pasien->no_hp!=null) value="{{ $users->pasien->no_hp }}" @endif>
+                                        @error('no_hp')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="tempat_lahir">Tempat Lahir</label>
-                                        <input class="form-control" id="tempat_lahir" name="tempat_lahir" type="text" placeholder="Tempat Lahir" value="{{ $users->tempat_lahir }}">
+                                        <input class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir" type="text" placeholder="Tempat Lahir" @if($users->pasien->tempat_lahir!=null) value="{{ $users->pasien->tempat_lahir }}" @endif>
+                                        @error('tempat_lahir')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLocation">Tanggal Lahir</label>
-                                        <div class="date" id="date1" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" placeholder="Tanggal Lahir" data-target="#date1" data-toggle="datetimepicker">
-                                        </div>
+                                        <label class="small mb-1" for="tgl_lahir">Tanggal Lahir</label>
+                                        <input type="text" name="tgl_lahir" id="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror" placeholder="Tanggal Lahir. Contoh: 2000-10-15" @if($users->pasien->tgl_lahir!=null) value="{{ $users->pasien->tgl_lahir }}" @endif>
+                                        @error('tgl_lahir')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <button class="btn btn-primary" type="submit">Simpan</button>
                                 <a class="btn btn-secondary" href="{{route('pasien.viewprofil')}}">Batal</a>
-
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4">
-                        <div class="row mb-5 Regular" id="BPJS" style="display: none;">
+                        <div class="row mb-5 Regular" id="bpjs" style="display: none;">
                             <div>
                                 <div class="card mb-3">
                                     <div class="card-header">Data BPJS Kesehatan</div>
                                     <div class="card-body text-center">
                                         <div class="mb-3">
-                                            <label class="small mb-1" for="nomor_kartu_bpjs">Nomor Kartu BPJS</label>
-                                            <input class="form-control" id="nomor_kartu_bpjs" name="nomor_kartu_bpjs" type="text">
+                                            <label class="small mb-1" for="nomor_bpjs">Nomor Kartu BPJS</label>
+                                            <input class="form-control @error('nomor_bpjs') is-invalid @enderror" id="nomor_bpjs" name="nomor_bpjs" type="text" value="{{ $users->pasien->nomor_bpjs }}">
+                                            @error('nomor_bpjs')
+                                            <span class=" invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label class="small mb-1" for="tingkat_faskes">Tingkat Faskes</label>
-                                            <select id="tingkat_faskes" name="tingkat_faskes" class="form-select" required>
+                                            <select id="tingkat_faskes" name="tingkat_faskes" class="form-select @error('tingkat_faskes') is-invalid @enderror" required>
                                                 <option value="null">Pilih Tingkat Faskes</option>
-                                                <option value="I" @if($users->tingkat_faskes == 'I') selected @endif>I</option>
-                                                <option value="II" @if($users->tingkat_faskes == 'II') selected @endif>II</option>
-                                                <option value="III" @if($users->tingkat_faskes == 'III') selected @endif>III</option>
-                                                <option value="IV" @if($users->tingkat_faskes == 'IV') selected @endif>IV</option>
-                                                <option value="V" @if($users->tingkat_faskes == 'V') selected @endif>V</option>
-                                                <option value="VI" @if($users->tingkat_faskes == 'VI') selected @endif>VI</option>
-                                                <option value="VII" @if($users->tingkat_faskes == 'VII') selected @endif>VII</option>
-                                                <option value="VIP" @if($users->tingkat_faskes == 'VIP') selected @endif>VIP</option>
+                                                <option value="I" @if($users->pasien->tingkat_faskes == 'I') selected @endif>I</option>
+                                                <option value="II" @if($users->pasien->tingkat_faskes == 'II') selected @endif>II</option>
+                                                <option value="III" @if($users->pasien->tingkat_faskes == 'III') selected @endif>III</option>
+                                                <option value="IV" @if($users->pasien->tingkat_faskes == 'IV') selected @endif>IV</option>
+                                                <option value="V" @if($users->pasien->tingkat_faskes == 'V') selected @endif>V</option>
+                                                <option value="VI" @if($users->pasien->tingkat_faskes == 'VI') selected @endif>VI</option>
+                                                <option value="VII" @if($users->pasien->tingkat_faskes == 'VII') selected @endif>VII</option>
+                                                <option value="VIP" @if($users->pasien->tingkat_faskes == 'VIP') selected @endif>VIP</option>
                                             </select>
+                                            @error('tingkat_faskes')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -223,7 +271,7 @@
     $(document).ready(function() {
         $('#kelas').on('change', function() {
             var value = $(this).val();
-            $(".Regular").hide();
+            $(".regular").hide();
             $("#" + value).show();
         });
     });
