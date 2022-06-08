@@ -76,9 +76,9 @@
     <div class="container">
         <div class="row g-5">
             <div class="row">
-                <div class="col-xl-4">
+                <div class="col-md-2">
                     <!-- Profile picture card-->
-                    <div class="card mb-4 mb-xl-0">
+                    <!-- <div class="card mb-4 mb-xl-0">
                         <div class="card-header">Upload Foto Profil</div>
                         <div class="card-body text-center">
                             <div class="mb-3">
@@ -91,7 +91,7 @@
                                 <input name="gambar" id="upload" type="file" onchange="readURL(this);" style="display: none;" class="form-control border-0">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-xl-8">
                     <!-- Account details card-->
