@@ -13,9 +13,13 @@ class Poli extends Model
 
     protected $fillable = [
         'nama_poli',
-        'spesialis',
+        'deskripsi',
         'jam_buka',
         'jam_tutup',
         'id_dokter'
     ];
+    public function dokter()
+    {
+        return $this->hasOne(Dokter::class, 'id', 'id_dokter');
+    }
 }

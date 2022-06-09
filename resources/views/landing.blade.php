@@ -80,8 +80,12 @@
                     <div class="date mb-3">
                         <form action="{{ route('home.poli.search') }}" method="GET" role="search" id="searchForm">
                             <div class="searchbar">
-                                <input type="text" class="search form-control bg-light border-0" name="search" placeholder="Cari Poli..." id="search" style="height: 40px;">
-                                <!-- <a href="" onclick="document.getElementById('searchForm').submit()" class="search_icon"><i class="fas fa-search"></i></a> -->
+                                <input type="text" class="form-control bg-light border-0 @error('poli') is-invalid @enderror" name="search" placeholder="Cari Poli..." id="search" style="height: 40px;">
+                                @error('poli')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </form>
                     </div>

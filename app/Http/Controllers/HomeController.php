@@ -28,18 +28,20 @@ class HomeController extends Controller
     }
     public function caripoli(Request $request)
     {
-        $mahasiswas = Mahasiswa::where([
-            ['nama', '!=', Null],
+        $poli = Poli::where([
+            ['nama_poli', '!=', Null],
             [
                 function ($query) use ($request) {
                     if (($search = $request->search)) {
-                        $query->orWhere('nama', 'LIKE', '%' . $search . '%')->get();
+                        $query->orWhere('nama_poli', 'LIKE', '%' . $search . '%')->get();
                     }
                 }
             ]
         ])
+            ->orderBy('id', 'asc')
+            ->with('dokter')
             ->first();
 
-        return view('mahasiswas.index', compact('mahasiswas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('infopoli', compact('poli'));
     }
 }

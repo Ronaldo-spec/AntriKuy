@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('poli', function (Blueprint $table) {
             $table->id();
             $table->string('nama_poli');
+            $table->text('deskripsi');
             $table->string('jam_buka');
             $table->string('jam_tutup');
             $table->unsignedBigInteger('id_dokter')->nullable();

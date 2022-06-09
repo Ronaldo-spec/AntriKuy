@@ -32,9 +32,7 @@ Route::group(
         Route::get('/', function () {
             return view('landing');
         })->name('landing');
-        Route::get('/poli/search', function () {
-            return view('poliresult');
-        })->name('home.poli.search');
+        Route::get('/poli/search', [HomeController::class, 'caripoli'])->name('home.poli.search');
     }
 );
 Route::group(
