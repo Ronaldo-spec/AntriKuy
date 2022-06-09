@@ -15,6 +15,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="card card-style1 border-0">
+                    @if($antri != null)
                     <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
                         <div class="row align-items-center">
                             <div class=" bg-info text-center col-lg-3 mb-4 mb-lg-0">
@@ -42,6 +43,9 @@
                             </div>
                         </div>
                     </div>
+                    @else
+                    <h1 class="display-5 mb-0 text-center">Anda belum mengantri!</h1>
+                    @endif
                 </div>
             </div>
         </div>
