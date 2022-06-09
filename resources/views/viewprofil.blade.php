@@ -104,24 +104,24 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="small mb-1" for="nik">Nomor Induk Kependudukan</label>
-                                        <h5 class="text-black mb-3" id="nik">{{ $user->pasien->nik }}</h5>
+                                        <h5 class="text-black mb-3" id="nik">{{ $user->nik }}</h5>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="small mb-1" for="alamat">Kelas</label>
-                                        <h5 class="text-black mb-3" id="nik">{{ $user->pasien->kelas }}</h5>
+                                        <h5 class="text-black mb-3" id="nik">{{ $user->kelas }}</h5>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="small mb-1" for="nama_lengkap">Nama lengkap</label>
-                                <h5 class="text-black mb-3" id="nama_lengkap">{{ $user->pasien->nama_lengkap }}</h5>
+                                <h5 class="text-black mb-3" id="nama_lengkap">{{ $user->nama_lengkap }}</h5>
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="alamat">Alamat</label>
-                                <h5 class="text-black mb-3" id="nik">{{ $user->pasien->alamat }}</h5>
+                                <h5 class="text-black mb-3" id="nik">{{ $user->alamat }}</h5>
                             </div>
 
                             <hr>
@@ -130,12 +130,12 @@
                                 <!-- Form Group (first name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="jenis_kelamin">Jenis Kelamin</label>
-                                    <h5 class="text-black mb-3" id="nik">{{ $user->pasien->jenis_kelamin }}</h5>
+                                    <h5 class="text-black mb-3" id="nik">{{ $user->jenis_kelamin }}</h5>
                                 </div>
                                 <!-- Form Group (last name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="no_hp">Nomor HP</label>
-                                    <h5 class="text-black mb-3" id="nik">{{ $user->pasien->no_hp }}</h5>
+                                    <h5 class="text-black mb-3" id="nik">{{ $user->no_hp }}</h5>
                                 </div>
                             </div>
                             <!-- Form Row        -->
@@ -143,26 +143,26 @@
                                 <!-- Form Group (organization name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="tempat_lahir">Tempat Lahir</label>
-                                    <h5 class="text-black mb-3" id="nik">{{ $user->pasien->tempat_lahir }}</h5>
+                                    <h5 class="text-black mb-3" id="nik">{{ $user->tempat_lahir }}</h5>
                                 </div>
                                 <!-- Form Group (location)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputLocation">Tanggal Lahir</label>
-                                    <h5 class="text-black mb-3" id="nik">{{ $user->pasien->tgl_lahir }}</h5>
+                                    <h5 class="text-black mb-3" id="nik">{{ $user->tgl_lahir }}</h5>
                                 </div>
                             </div>
-                            @if($user->pasien->kelas == 'bpjs')
+                            @if($user->kelas == 'bpjs')
                             <hr>
                             <div class="row gx-3 mb-3">
                                 <!-- Form Group (organization name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="nomor_bpjs">Nomor BPJS</label>
-                                    <h5 class="text-black mb-3" id="nomor_bpjs">{{ $user->pasien->nomor_bpjs }}</h5>
+                                    <h5 class="text-black mb-3" id="nomor_bpjs">{{ $user->nomor_bpjs }}</h5>
                                 </div>
                                 <!-- Form Group (location)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="tingkat_faskes">Tingkat Faskes</label>
-                                    <h5 class="text-black mb-3" id="tingkat_faskes">{{ $user->pasien->tingkat_faskes }}</h5>
+                                    <h5 class="text-black mb-3" id="tingkat_faskes">{{ $user->tingkat_faskes }}</h5>
                                 </div>
                             </div>
                             @endif

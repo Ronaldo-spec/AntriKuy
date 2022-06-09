@@ -59,9 +59,7 @@ Route::group(
         Route::POST('/ambilnomor', [AntrianController::class, 'create'])->name('antrian.create');
 
         Route::get('/list', [AntrianController::class, 'listantrian'])->name('listantrian');
-        Route::get('/cek-nomor-antrian', function () {
-            return view('cekantrian');
-        })->name('cekantrian');
+        Route::get('/nomorku', [AntrianController::class, 'nomorku'])->name('cekantrian');
     }
 );
 

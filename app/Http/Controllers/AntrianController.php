@@ -71,4 +71,11 @@ class AntrianController extends Controller
             return redirect()->route('antrian.index');
         }
     }
+    public function nomorku()
+    {
+        $user = Auth::user();
+        $pasien =  Pasien::where('id', $user->id_pasien)->first();
+        $antri = Antrian::where('id_pasien', $pasien->id)->first();
+        return view('cekantrian', compact('antri'));
+    }
 }

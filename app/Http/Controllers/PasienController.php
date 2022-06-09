@@ -19,14 +19,14 @@ class PasienController extends Controller
     public function view()
     {
         $users = Auth::user();
-        $user = $users->with('pasien')->first();
+        $user = Pasien::where('id', $users->id_pasien)->first();
         return view('viewprofil', compact('users', 'user'));
     }
 
     public function edit()
     {
         $user = Auth::user();
-        $users = $user->with('pasien')->first();
+        $users = Pasien::where('id', $user->id_pasien)->first();
         return view('editdata', compact('users'));
     }
 
@@ -45,20 +45,18 @@ class PasienController extends Controller
                 'tgl_lahir' => 'required',
             ]);
             $id = Auth::user()->id_pasien;
-            $inputpasien = Pasien::find($id)->update([
-                'nik' => $request->nik,
-                'kelas' => $request->kelas,
-                'nama_lengkap' => $request->nama_lengkap,
-                'alamat' => $request->alamat,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'no_hp' => $request->no_hp,
-                'tempat_lahir' => $request->tempat_lahir,
-                'tgl_lahir' => $request->tgl_lahir,
-                'nomor_bpjs' => '',
-                'tingkat_faskes' => ''
-            ]);
+            $pasien = Pasien::where('id', $id)->first();
+            $pasien->nik = $request->nik;
+            $pasien->kelas = $request->kelas;
+            $pasien->nama_lengkap = $request->nama_lengkap;
+            $pasien->alamat = $request->alamat;
+            $pasien->jenis_kelamin = $request->jenis_kelamin;
+            $pasien->no_hp = $request->no_hp;
+            $pasien->tempat_lahir = $request->tempat_lahir;
+            $pasien->tgl_lahir = $request->tgl_lahir;
+            $pasien->save();
 
-            if ($inputpasien) {
+            if ($pasien) {
                 Alert::success('Success', 'Update Data Berhasil!!!');
             } else {
                 Alert::error('Error', 'Gagal Update Data!!!');
