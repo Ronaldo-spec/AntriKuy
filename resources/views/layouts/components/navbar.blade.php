@@ -20,7 +20,7 @@
                     <a href="#" class="nav-link dropdown-toggle @yield('pagestatus3')" data-bs-toggle="dropdown">Loket</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{route('ambilantrian')}}" class="dropdown-item">Ambil Nomor Antrian</a>
-                        <a href="{{route('lihatantrian')}}" class="dropdown-item">Lihat Antrian</a>
+                        <a href="{{route('listantrian')}}" class="dropdown-item">Lihat Antrian</a>
                         <a href="{{route('cekantrian')}}" class="dropdown-item">Cek Nomor Antrian</a>
                     </div>
                 </div>

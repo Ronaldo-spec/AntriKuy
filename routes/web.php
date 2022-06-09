@@ -57,10 +57,10 @@ Route::group(
         'middleware' => 'verified'
     ],
     function () {
-        Route::get('/ambil-nomor', [AntrianController::class, 'index'])->name('ambilantrian');
-        Route::get('/lihat-antrian', function () {
-            return view('lihatantrian');
-        })->name('lihatantrian');
+        Route::get('/', [AntrianController::class, 'index'])->name('ambilantrian');
+        Route::POST('/ambilnomor', [AntrianController::class, 'create'])->name('antrian.create');
+
+        Route::get('/list', [AntrianController::class, 'listantrian'])->name('listantrian');
         Route::get('/cek-nomor-antrian', function () {
             return view('cekantrian');
         })->name('cekantrian');
@@ -74,6 +74,8 @@ Route::group([
     Route::resource('users', UserController::class);
     Route::resource('dokter', DokterController::class);
     Route::get('/', [HomeAdminController::class, 'index'])->name('admin.index');
+    Route::get('/antrian', [AntrianController::class, 'indexantrian'])->name('antrian.index');
+    Route::get('/antrian/ambil/{id}', [AntrianController::class, 'ambilantrian'])->name('antrian.ambil');
 });
 
 Route::group(

@@ -1,5 +1,4 @@
 @extends('layouts.master')
-@include('sweetalert::alert')
 @section('pagestatus1', 'active')
 @section('content')
 <!-- Carousel Start -->

@@ -54,14 +54,14 @@
                     <a href="{{route('admin.index')}}" class="nav-item nav-link @yield('statussidepanel1')"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{route('users.index')}}" class="nav-item nav-link @yield('statussidepanel2')"><i class="fa fa-user me-2"></i>Manage Users</a>
                     <a href="{{route('dokter.index')}}" class="nav-item nav-link @yield('statussidepanel3')"><i class="fa fa-user-doctor me-2"></i>Data Dokter</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle @yield('statussidepanel4')" data-bs-toggle="dropdown"><i class="fa fa-hospital-user me-2"></i>List Pasien</a>
+                    <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle @yield('statussidepanel4')" data-bs-toggle="dropdown"><i class="fa fa-clipboard-list me-2"></i>Antrian</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="pasien.html" class="dropdown-item">Belum Mengantri</a>
-                            <a href="pasien.html" class="dropdown-item">Sudah Mengantri</a>
+                            <a href="pasien.html" class="dropdown-item">Menunggu</a>
+                            <a href="pasien.html" class="dropdown-item">Selesai</a>
                         </div>
-                    </div>
-                    <a href="#" class="nav-item nav-link @yield('statussidepanel5')"><i class="fa fa-clipboard-list me-2"></i>Antrian</a>
+                    </div> -->
+                    <a href="{{route('antrian.index')}}" class="nav-item nav-link @yield('statussidepanel5')"><i class="fa fa-clipboard-list me-2"></i>Antrian</a>
                 </div>
             </nav>
         </div>
@@ -101,9 +101,10 @@
             </nav>
             <!-- Navbar End -->
             @yield('content')
+            @include('sweetalert::alert')
             <!-- Footer Start -->
             <br>
-            <div class="container-fluid pt-4 px-4">
+            <div class="container-fluid pt-4 px-4" style="bottom: 0; position:fixed;">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">

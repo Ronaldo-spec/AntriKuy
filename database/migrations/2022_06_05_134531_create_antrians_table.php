@@ -15,13 +15,10 @@ class CreateAntriansTable extends Migration
     {
         Schema::create('antrian', function (Blueprint $table) {
             $table->id();
-            $table->string('nomor_antrian');
-            $table->date('tanggal');
-            $table->string('status');
-            $table->unsignedBigInteger('id_pasien')->nullable();
-            $table->unsignedBigInteger('id_poli')->nullable();
-            $table->unsignedBigInteger('id_petugas')->nullable();
-            $table->foreign('id_petugas')->references('id')->on('petugas');
+            $table->string('nomor_antrian')->nullable();
+            $table->unsignedBigInteger('id_pasien');
+            $table->unsignedBigInteger('id_poli');
+            $table->enum('status', ['menunggu', 'proses', 'selesai'])->default('menunggu');
             $table->foreign('id_poli')->references('id')->on('poli');
             $table->foreign('id_pasien')->references('id')->on('pasien');
             $table->timestamps();
