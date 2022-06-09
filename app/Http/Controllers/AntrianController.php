@@ -55,8 +55,10 @@ class AntrianController extends Controller
     public function ambilantrian($id)
     {
         $lama = Antrian::where('status', '=', 'proses')->first();
-        $lama->status = 'selesai';
-        $lama->save();
+        if ($lama) {
+            $lama->status = 'selesai';
+            $lama->save();
+        }
         $baru = Antrian::where('id', $id)->first();
         $baru->status = 'proses';
         $baru->save();
