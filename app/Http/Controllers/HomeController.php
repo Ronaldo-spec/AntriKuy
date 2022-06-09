@@ -43,5 +43,6 @@ class HomeController extends Controller
             ->first();
 
         return view('infopoli', compact('poli'));
+        
     }
 }
