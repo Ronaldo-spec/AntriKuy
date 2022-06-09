@@ -28,7 +28,7 @@
                                     <a class="btn btn-primary m-2" href="{{ route('dokter.edit', $dokter->id) }}">Edit</a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger m-2">Delete</button>
+                                    <button type="submit" class="btn btn-danger m-2" onclick="return confirm('Apa anda yakin menghapus data tersebut?')">Delete</button>
                                 </form>
                             </td>
                         </tr>
