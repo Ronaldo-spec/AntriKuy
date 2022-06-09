@@ -8,8 +8,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-user fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total User</p>
-                    <h6 class="mb-0">{{$totaluser}}</h6>
+                    <p class="mb-2">Pasien</p>
+                    <h6 class="mb-0">{{$totalpasien}}</h6>
                 </div>
             </div>
         </div>
@@ -17,23 +17,38 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa-solid fa-hospital-user fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total Pasien</p>
-                    <h6 class="mb-0">{{$totalpasien}}</h6>
+                    <p class="mb-2">Dokter</p>
+                    <h6 class="mb-0">{{$totaldokter}}</h6>
                 </div>
             </div>
         </div>
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                <i class="fa-solid fa-hospital-user fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total Dokter</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Antrian</p>
+                    <h6 class="mb-0">{{$totalantrian}}</h6>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Sale & Revenue End -->
+
+
+<!-- <div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+    <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-hospital-user fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Poli THT</p>
+                    <h6 class="mb-0">{{$totalantrian}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 
 
 <!-- Widgets Start -->
