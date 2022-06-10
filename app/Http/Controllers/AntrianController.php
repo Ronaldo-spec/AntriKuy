@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Poli;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
 
 class AntrianController extends Controller
 {
@@ -77,5 +78,11 @@ class AntrianController extends Controller
         $pasien =  Pasien::where('id', $user->id_pasien)->first();
         $antri = Antrian::where('id_pasien', $pasien->id)->first();
         return view('cekantrian', compact('antri'));
+    }
+    public function deleteantrian()
+    {
+        // Antrian::whereNotNull('id')->delete();
+        DB::table('antrian')->truncate();
+        return redirect()->route('admin.index');
     }
 }

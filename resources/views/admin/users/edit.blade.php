@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-floating mb-3">
                     <select name="role" class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                        <option value="petugas" {{ $users->role === 'admin' ? 'selected' : '' }}>Admin</option>
+                        <option value="admin" {{ $users->role === 'admin' ? 'selected' : '' }}>Admin</option>
                         <option value="pasien" {{ $users->role === 'pasien' ? 'selected' : '' }}>Pasien</option>
                     </select>
                     <label for="floatingSelect">Role</label>

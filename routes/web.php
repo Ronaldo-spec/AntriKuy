@@ -72,6 +72,7 @@ Route::group([
     Route::get('/', [HomeAdminController::class, 'index'])->name('admin.index');
     Route::get('/antrian', [AntrianController::class, 'indexantrian'])->name('antrian.index');
     Route::get('/antrian/ambil/{id}', [AntrianController::class, 'ambilantrian'])->name('antrian.ambil');
+    Route::get('/del', [AntrianController::class, 'deleteantrian'])->name('antrian.delete');
 });
 
 Route::group(

@@ -37,6 +37,7 @@
                     </tbody>
                 </table>
             </div>
+            <a class="btn btn-danger" href="{{ route('antrian.delete') }}">Delete All</a>
         </div>
     </div>
 </div>

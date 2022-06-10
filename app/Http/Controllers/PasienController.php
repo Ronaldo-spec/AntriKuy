@@ -129,6 +129,6 @@ class PasienController extends Controller
         $user = Auth::user();
         $user->update($input);
         Alert::success('Success', 'Update Detail Akun Berhasil!!.');
-        return redirect()->route('editprofil');
+        return redirect()->route('pasien.editprofil');
     }
 }

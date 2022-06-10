@@ -53,7 +53,7 @@
                 <div class="navbar-nav w-100">
                     <a href="{{route('admin.index')}}" class="nav-item nav-link @yield('statussidepanel1')"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{route('users.index')}}" class="nav-item nav-link @yield('statussidepanel2')"><i class="fa fa-user me-2"></i>Manage Users</a>
-                    <a href="{{route('dokter.index')}}" class="nav-item nav-link @yield('statussidepanel3')"><i class="fa fa-user-doctor me-2"></i>Data Dokter</a>
+                    <!-- <a href="{{route('dokter.index')}}" class="nav-item nav-link @yield('statussidepanel3')"><i class="fa fa-user-doctor me-2"></i>Data Dokter</a> -->
                     <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle @yield('statussidepanel4')" data-bs-toggle="dropdown"><i class="fa fa-clipboard-list me-2"></i>Antrian</a>
                         <div class="dropdown-menu bg-transparent border-0">
